@@ -7,16 +7,15 @@ import java.util.Scanner;
 
 public class ConnectToDB extends LoginDB_Info {
     static final String DB_Info = "jdbc:mysql://127.0.0.1:3306/customer";
-    static final String USER_NAME = "root";
-    static final String PASS = "anh@1972001";
+   
     public static Scanner inp = new Scanner(System.in);
 
     public static Connection getConnect() {
-       /* LoginDB_Info login = new LoginDB_Info();
+        LoginDB_Info login = new LoginDB_Info();
         login.setUSER_NAME(inp.nextLine());
-        login.setPASS(inp.nextLine());*/
+        login.setPASS(inp.nextLine());
         try {
-            Connection bridge = DriverManager.getConnection(DB_Info, USER_NAME, PASS);
+            Connection bridge = DriverManager.getConnection(DB_Info, login.getUSER_NAME(), login.getPASS());
             System.out.println("Connected Successfully");
             return bridge;
         } catch (SQLException throwables) {
